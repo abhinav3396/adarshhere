@@ -1,0 +1,324 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Trailer Hub</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-color: #333;
+            color: #CCC;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+        .movie-tile img {
+            box-shadow: 7px 7px 12px #222;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        
+        ul{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+ 
+li{
+float:left
+}
+ *{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+nav{
+	width: 100%;
+	height: 75px;
+	background-color: #505d61;
+	line-height: 75px;
+	padding:0px 100px;
+	position:fixed;
+	z-index: 1;
+}
+nav .logo{
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 1.5px; 
+}
+nav .logo p{
+	float: left;
+	color:#fff;
+	text-transform: uppercase;
+}
+nav ul{
+	float: right;
+    padding: 20px;
+}
+nav ul li{
+	display: inline-block;
+	list-style: none;
+}
+nav ul li a{
+	color:#fff;
+	text-decoration: none;
+	font-size: 18px;
+	text-transform: uppercase;
+	padding:0px 32px;
+}
+nav ul li a:hover{
+	color:#c0d96f;
+}
+nav ul li .active{
+	color:#c0d96f;
+}
+.image img{
+	width: 100%;
+	height: 0px auto;
+	opacity: 0.80;
+}
+
+ 
+a:link, a:visited{
+display:block;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#98bf21;
+width:120px;
+text-align:center;
+padding:4px;
+text-transform:uppercase;
+text-decoration:none;
+}
+ 
+a:hover, a:active{
+background-color:#7A991A;
+}
+ 
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+    
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+      <div style="background-image: url('adr1.png');">
+      
+<nav>
+		<div class="logo">
+			<p>Trailer Hub</p>
+		</div>
+		<ul>
+			<li><a href="" class="active">home</a></li>
+			<li><a href="">Bolly</a></li>
+			<li><a href="">Holly</a></li>
+			<li><a href="">Tolly</a></li>
+			<li><a href="">Series</a></li>
+		</ul>
+	</nav>
+	<div class="image">
+		<img src="image/adr1.png">
+	</div>
+          
+          
+          
+      
+    
+    <!-- Main Page Content -->
+    
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="0LHxvxdRnYc" data-toggle="modal" data-target="#trailer">
+    <img src="https://stat.ameba.jp/user_images/20190108/19/jumbooomori/68/06/j/o0821120014335603368.jpg?caw=800" width="220" height="342">
+    <h2>Captain Marvel</h2>
+    <p>MCU's most powerful superhero</p>
+    <p>Release date: March 8, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TcMBFSGVi1c" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="220" height="342">
+    <h2>Avengers: EndGame</h2>
+    <p>The Avengers take a final stand against Thanos</p>
+    <p>Release date: April 26, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Nt9L1jCKGnE" data-toggle="modal" data-target="#trailer">
+    <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/sffh_venice-high-res.jpg" width="220" height="342">
+    <h2>Spider-Man: FFH</h2>
+    <p>Following the events of Avengers: Endgame,</p>
+    <p>Release date: July 5, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="azvR__GRQic" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BMjAwNDgxNTI0M15BMl5BanBnXkFtZTgwNTY4MDI1NzM@._V1_.jpg" width="220" height="342">
+    <h2>X-Men: Dark Phoenix</h2>
+    <p>Jean Grey begins to develop incredible powers</p>
+    <p>Release date: June 7, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="uilJZZ_iVwY" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYTE0Yjc1NzUtMjFjMC00Y2I3LTg3NGYtNGRlMGJhYThjMTJmXkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_.jpg" width="220" height="342">
+    <h2>Shazam!</h2>
+    <p>An effortlessly entertaining blend of humor and heart</p>
+    <p>Release date: April 5, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+        <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EMa-KFfatT0" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BYmI4NDNiMmQtZTFkYi00ZDVmLThlYTAtMWJlMjU1M2I2ZmViXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,674,1000_AL_.jpg" width="220" height="342">
+    
+    <h2>Annabelle Comes Home</h2>
+    <p>Determined to keep Annabelle from wreaking more havoc</p>
+    <p>Release date: June 26, 2019</p>
+</div>
+
+    </div>
+           <footer>
+        <p class="text">Sign up to recieve special offers and updates</p>
+        <form>
+            <input type="email" required>
+            <input type="submit" value="Sign Up">
+        </form>
+        <ul class="list-footer">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Delivery</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyrights">&copy; 2020 DeltatyCode</p>
+    </footer>
+  </body>
+</html>
